@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  mysql-database-service
+  labels:
+    app:  mysql-database
+spec:
+  selector:
+    name: mysql-database
+  type:   ClusterIP # ✅ ClusterIP type for internal access
+  ports:
+    port:  3306  # ✅ MySQL default port
+    targetPort:  3306  # ✅ matches containerPort in Deployment
