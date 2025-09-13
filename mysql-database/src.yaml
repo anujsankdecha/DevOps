@@ -9,5 +9,5 @@ spec:
     name: mysql-database
   type:   ClusterIP # ✅ ClusterIP type for internal access
   ports:
-    port:  3306  # ✅ MySQL default port
-    targetPort:  3306  # ✅ matches containerPort in Deployment
+  -  port:  3306  # ✅ MySQL default port
+     targetPort:  3306  # ✅ matches containerPort in Deployment
