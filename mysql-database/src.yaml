@@ -6,7 +6,7 @@ metadata:
     app:  mysql-database
 spec:
   selector:
-    name: mysql-database
+    app: mysql-database
   type:   ClusterIP # ✅ ClusterIP type for internal access
   ports:
   -  port:  3306  # ✅ MySQL default port
