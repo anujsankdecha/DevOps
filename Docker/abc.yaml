@@ -47,4 +47,5 @@ spec:
         - name: data
           emptyDir: {}
       restartPolicy: Always
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
+      dnsPolicy: ClusterFirst
