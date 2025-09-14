@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  mysql-database-service
+  labels:
+    app:  mysql-database
+spec:
+  selector:
+    app: mysql-database
+  type: NodePort 
+  ports:
+  -  port:  3306  # ✅ MySQL default port
+     targetPort:  3306  # ✅ matches containerPort in Deployment
+     nodePort:  30036  # ✅ NodePort in the valid range (30000-32767)
