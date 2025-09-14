@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  postgresql-database
+  labels:
+    app:  postgresql-database
+spec:
+  selector:
+    app:  postgresql-database
+  type: NodePort
+  ports:
+    port:  5432
+    targetPort:  5432       # ✅ Corrected targetPort to match PostgreSQL default port
+    nodePort:  30007        # ✅ NodePort within the valid range (30000-32767)
