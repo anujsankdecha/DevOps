@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-database
+  labels:
+    app: postgresql-database
+spec:
+  selector:
+    matchLabels:
+      app: postgresql-database
+  template:
+    metadata:
+      labels:
+        app: postgresql-database
+    spec:
+      containers:
+      - name: postgresql-database
+        image: postgres:15   # ✅ official PostgreSQL image instead of postgresql-database:latest
+        ports:
+        - containerPort: 5432  
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgresql-database
+              key: password
