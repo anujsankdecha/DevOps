@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-database
+  name: mysql-database-secret
   labels:
-    app: mysql-database
+    app: mysql-database-secret
 spec:
   selector:
     matchLabels:
-      app: mysql-database
+      app: mysql-database-secret
   template:
     metadata:
       labels:
-        app: mysql-database
+        app: mysql-database-secret
     spec:
       containers:
-      - name: mysql-database
+      - name: mysql-database-secret
         image: mysql:8.0   # ✅ official MySQL image instead of mysql-database:latest
         ports:
         - containerPort: 3306   # ✅ no quotes
