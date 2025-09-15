@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-database
+spec:
+  selector:
+    matchLabels:
+      app: postgresql-database
+  template:
+    metadata:
+      labels:
+        app: postgresql-database
+    spec:
+      volumes:
+        - name: webdata
+          persistentVolumeClaim: 
+            claimName: postgresql-databasec
+      containers:
+      - name: postgresql-database
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: webdata
+          mountPath: /var/lib/postgres/data
