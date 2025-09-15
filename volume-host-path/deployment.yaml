@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mypv
+spec:
+  selector:
+    matchLabels:
+      app: mypv
+    template:
+      metadata:
+        labels:
+          app: mypv
+      spec:
+        containers:
+        - name: mypv
+          image: nginx
+          ports:
+          - containerPort: 80
+          volumeMounts:
+          - mountPath: "/usr/share/nginx/html"
+            name: webdata
+        volumes:
+        - name: webdata
+          persistentVolumeClaim:
+            claimName: mypvc
