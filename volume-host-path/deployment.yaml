@@ -5,7 +5,6 @@ metadata:
 spec:
     matchLabels:
       app: mypv
-  template:
     metadata:
       labels:
         app: mypv
