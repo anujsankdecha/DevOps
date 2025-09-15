@@ -11,5 +11,5 @@ spec:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
   hostPath:
-    path: /mnt/mypv
+    path: "/mnt/mypv"
     type: DirectoryOrCreate
