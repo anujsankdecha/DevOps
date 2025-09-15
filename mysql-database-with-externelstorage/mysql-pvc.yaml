@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-database-pvc
   labels:
-    app: mysql-database-secret
+    app: mysql-database-secret-es
 spec:
   resources:
     requests:
