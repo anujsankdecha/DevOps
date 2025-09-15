@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-database-secret
+  labels:
+    app: mysql-database-secret
+spec:
+  selector:
+    matchLabels:
+      app: mysql-database-secret
+  template:
+    metadata:
+      labels:
+        app: mysql-database-secret
+    spec:
+      volumes:
+        - name: volume-mount-mysql
+          persistentVolumeClaim:
+            claimName: mysql-database-pvc  # ✅ matches the PVC name
+      containers:
+      - name: mysql-database-secret
+        image: mysql:8.0   # ✅ official MySQL image instead of mysql-database:latest
+        ports:
+        - containerPort: 3306   # ✅ no quotes
+        resources:
+          requests:
+            memory: "1000Mi"   # ✅ quotes for memory values
+            cpu: "1"       # ✅ quotes for CPU values
+          limits:
+            memory: "3000Mi"   # ✅ quotes for memory values
+            cpu: "2"       # ✅ quotes for CPU values
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-database-secret
+              key: password
+        volumeMounts:
+          - name:  volume-mount-mysql
+            mountPath:  /var/lib/mysql  # ✅ correct MySQL data directory
