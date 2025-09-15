@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-database-pvc
+  name: mysql-database-pvc-new
   labels:
     app: mysql-database-secret-es
 spec:
