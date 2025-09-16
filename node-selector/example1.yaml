@@ -16,7 +16,7 @@ spec:
     ports:
       - containerPort: 80 
   nodeSelector: 
-    kubernetes.io/hostname: kubernetes.io/hostname=localhost.localdomain 
+    kubernetes.io/hostname: localhost.localdomain 
 
 ---
 apiVersion: v1
@@ -36,4 +36,4 @@ spec:
     ports:
       - containerPort: 80 
   nodeSelector: 
-    kubernetes.io/hostname: kubernetes.io/hostname=practice.com
+    kubernetes.io/hostname: practice.com
