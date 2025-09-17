@@ -106,6 +106,7 @@ spec:
   ports:
   - name: https
     port: 443
+    nodePort: 30443
     protocol: TCP
     targetPort: https
   selector:
